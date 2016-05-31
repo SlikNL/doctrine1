@@ -1366,7 +1366,7 @@ abstract class Doctrine_Query_Abstract
      */
     public function andWhereIn($expr, $params = array(), $not = false)
     {
-        // if there's no params, return (else we'll get a WHERE IN (), invalid SQL)
+        // if the params are empty, ensure we don't return any row
         if (isset($params) and (count($params) == 0)) {
             return $this->andWhere('0');
         }
